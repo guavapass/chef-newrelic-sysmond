@@ -27,13 +27,6 @@ apt_repository "newrelic" do
   only_if { platform_family?("debian") }
 end
 
-# yum repository
-yum_repository "newrelic" do
-  description "New Relic"
-  baseurl node["newrelic-sysmond"]["yum_baseurl"]
-  gpgcheck false
-  only_if { platform_family?("rhel") }
-end
 
 # install the package
 package "newrelic-sysmond" do
